@@ -1,0 +1,103 @@
+﻿@model EntityLayer.Concrete.Order
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<section class="main-content-w3layouts-agileits">
+	<div class="container">
+		<h3 class="tittle">Order Tanımlama</h3>
+		<div class="inner-sec">
+			<div class="login p-5 bg-light mx-auto mw-100">
+
+				@using (Html.BeginForm("Index", "Order", FormMethod.Post))
+				{
+					<div class="form-row">
+						<div class="col-md-12 mb-3">
+							<label for="validationCustom01">OrderAdi</label>
+							@Html.TextBoxFor(x=>x.OrderAdi,new{@class= "form-control"})
+							@Html.ValidationMessageFor(x=>x.OrderAdi,"",new{@class= "text-danger"})
+							@*<input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+						</div>
+						
+					</div>
+					<div class="form-row">
+						<div class="col-md-12 mb-3">
+							<label for="validationCustom02">Model Adi</label>
+							@*<input type="email" class="form-control" id="validationDefault02" name="WriterMail" required="">*@
+							@Html.TextBoxFor(x=>x.ModelAdi,new{@class= "form-control"})
+							@Html.ValidationMessageFor(x=>x.ModelAdi,"",new{@class= "text-danger"})
+						</div>
+					</div>
+					<div class="form-row">
+
+						<div class="col-md-12 mb-3">
+							<label for="validationCustom01">Adet</label>
+							@Html.TextBoxFor(x => x.Adet, new { @class = "form-control" })
+							@Html.ValidationMessageFor(x => x.Adet, "", new { @class = "text-danger" })
+							@*<input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+						</div>
+					</div>
+					<div class="form-row">
+
+						<div class="col-md-12 mb-3">
+							<label for="validationCustom02">Musteri</label>
+							@*<input type="email" class="form-control" id="validationDefault02" name="WriterMail" required="">*@
+							@Html.TextBoxFor(x => x.Musteri, new { @class = "form-control" })
+							@Html.ValidationMessageFor(x => x.Musteri, "", new { @class = "text-danger" })
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-12 mb-3">
+							<label for="validationCustom01">Ulke</label>
+							@Html.TextBoxFor(x => x.Ulke, new { @class = "form-control" })
+							@Html.ValidationMessageFor(x => x.Ulke, "", new { @class = "text-danger" })
+							@*<input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+						</div>
+					</div>
+						<div class="form-row">
+							
+							<div class="col-md-12 mb-3">
+								<label for="validationCustom02">Yikamasi</label>
+								@*<input type="email" class="form-control" id="validationDefault02" name="WriterMail" required="">*@
+								@Html.TextBoxFor(x => x.Yikamasi, new { @class = "form-control" })
+								@Html.ValidationMessageFor(x => x.Yikamasi, "", new { @class = "text-danger" })
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-4 mb-3">
+								<label for="validationCustom01">TerminTarihi</label>
+								@Html.TextBoxFor(x => x.TerminTarihi, new { type = "date", @class = "form-control" })
+								@Html.ValidationMessageFor(x => x.TerminTarihi, "", new { @class = "text-danger" })
+								@*<input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="validationCustom01">QR</label>
+								@Html.TextBoxFor(x => x.QR, new { @class = "form-control" })
+								@Html.ValidationMessageFor(x => x.QR, "", new { @class = "text-danger" })
+								@*<input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="validationCustom01">BarkodKod36</label>
+								@Html.TextBoxFor(x => x.BarkodKod36, new { @class = "form-control" })
+								@Html.ValidationMessageFor(x => x.BarkodKod36, "", new { @class = "text-danger" })
+								@*<input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary submit mb-4">Order Ekle</button>
+						}
+
+					</div>
+		</div>
+	</div>
+	<br />
+	
+</section>
+<br />
+
+
+@await Component.InvokeAsync("OrderList")

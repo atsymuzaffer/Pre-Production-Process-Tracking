@@ -1,0 +1,18 @@
+﻿@using UOTakip.ViewComponents.OrderList
+@model IEnumerable<EntityLayer.Concrete.Order>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<table class="table table-bordered">
+	<tr>
+		<th>Order Adı</th>
+		<th>Termin Tarihi</th>
+		<th>İşlemler</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.OrderAdi</td>
+			<td>@item.TerminTarihi</td>
+			<td><button type="submit" href="@item.OrderId" class="btn btn-danger">Sil</button></td>
+		</tr>
+	}
+</table>
